@@ -1,5 +1,5 @@
-import { app, BrowserWindow } from 'electron'
-import {resolve} from "path";
+import { app, BrowserWindow, ipcMain, IpcMainEvent, shell } from 'electron'
+import {join,resolve} from "path";
 
 const createWindow = () => {
   const mainWindow = new BrowserWindow({
@@ -8,6 +8,7 @@ const createWindow = () => {
     webPreferences: {
       contextIsolation: true,
       nodeIntegration: true,
+      preload: join(__dirname, "../preload/index.cjs")
     },
   })
   if (import.meta.env.MODE === "dev") {
@@ -21,10 +22,13 @@ const createWindow = () => {
   }
 }
 
+const openUrlByDefaultBrowser = (e:IpcMainEvent, args: any) => {
+  shell.openExternal(args)
+}
 
 app.whenReady().then(() => {
   createWindow()
-
+  ipcMain.on('openUrlByDefaultBrowser', openUrlByDefaultBrowser)
   app.on('activate', () => {
     if (BrowserWindow.getAllWindows().length === 0) createWindow()
   })

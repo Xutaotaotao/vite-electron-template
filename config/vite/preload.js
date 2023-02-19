@@ -9,12 +9,12 @@ const config = {
     },
   },
   build: {
-    outDir: path.resolve(__dirname, "../../dist/main"),
+    outDir: path.resolve(__dirname, "../../dist/preload"),
     minify: false,
     target: `node16`,
     lib: {
-      entry: path.resolve(__dirname, '../../src/main/index.ts'),
-      formats: ['cjs'],
+      entry: path.resolve(__dirname, '../../src/preload/index.ts'),
+      formats: ['cjs']
     },
     rollupOptions: {
       external: ['electron',...builtinModules],

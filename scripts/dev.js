@@ -26,6 +26,28 @@ const renderDev = {
   },
 };
 
+const preloadDev = {
+  async createRenderServer(viteDevServer) {
+    const options = {
+      ...sharedOptions,
+      configFile: path.resolve(__dirname, "../config/vite/preload.js"),
+    };
+    return build({
+      ...options,
+      plugins: [
+        {
+          name: 'reload-page-on-preload-package-change',
+          writeBundle() {
+            viteDevServer.ws.send({
+              type: 'full-reload',
+            })
+          },
+        },
+      ],
+    });
+  },
+}
+
 let spawnProcess = null;
 
 const mainDev = {
@@ -70,6 +92,7 @@ const mainDev = {
 const initDev = async () => {
   try {
     const renderDevServer = await renderDev.createRenderServer();
+    await preloadDev.createRenderServer(renderDevServer)
     await mainDev.createMainServer(renderDevServer);
   } catch (err) {
     console.error(err);
