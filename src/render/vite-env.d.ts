@@ -2,6 +2,7 @@
 declare global {
   interface Window {
     nativeBridge: any;
+    electronMessagePort:any;
   }
 }
 

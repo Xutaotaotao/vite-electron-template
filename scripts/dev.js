@@ -36,17 +36,40 @@ const preloadDev = {
       ...options,
       plugins: [
         {
-          name: 'reload-page-on-preload-package-change',
+          name: "reload-page-on-preload-package-change",
           writeBundle() {
             viteDevServer.ws.send({
-              type: 'full-reload',
-            })
+              type: "full-reload",
+            });
           },
         },
       ],
     });
   },
-}
+};
+
+
+const workDev = {
+  async createRenderServer(viteDevServer) {
+    const options = {
+      ...sharedOptions,
+      configFile: path.resolve(__dirname, "../config/vite/work.js"),
+    };
+    return build({
+      ...options,
+      plugins: [
+        {
+          name: "reload-page-on-work-package-change",
+          writeBundle() {
+            viteDevServer.ws.send({
+              type: "full-reload",
+            });
+          },
+        },
+      ],
+    });
+  },
+};
 
 let spawnProcess = null;
 
@@ -92,7 +115,8 @@ const mainDev = {
 const initDev = async () => {
   try {
     const renderDevServer = await renderDev.createRenderServer();
-    await preloadDev.createRenderServer(renderDevServer)
+    await preloadDev.createRenderServer(renderDevServer);
+    await workDev.createRenderServer(renderDevServer);
     await mainDev.createMainServer(renderDevServer);
   } catch (err) {
     console.error(err);

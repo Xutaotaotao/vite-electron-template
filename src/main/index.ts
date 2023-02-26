@@ -1,39 +1,91 @@
-import { app, BrowserWindow, ipcMain, IpcMainEvent, shell } from 'electron'
-import {join,resolve} from "path";
+import {
+  app,
+  BrowserWindow,
+  ipcMain,
+  IpcMainEvent,
+  Menu,
+  MessageChannelMain,
+  shell,
+} from "electron";
+import { join, resolve } from "path";
+import { initIpc } from "./ipc";
+
+let workWindow: any = null;
+let mainWindow: any = null;
 
 const createWindow = () => {
-  const mainWindow = new BrowserWindow({
+  mainWindow = new BrowserWindow({
     width: 800,
     height: 600,
     webPreferences: {
       contextIsolation: true,
       nodeIntegration: true,
-      preload: join(__dirname, "../preload/index.cjs")
+      preload: join(__dirname, "../preload/index.cjs"),
     },
-  })
+  });
+
   if (import.meta.env.MODE === "dev") {
     if (import.meta.env.VITE_DEV_SERVER_URL) {
       mainWindow.loadURL(import.meta.env.VITE_DEV_SERVER_URL);
       mainWindow.webContents.openDevTools();
     }
   } else {
-    mainWindow.webContents.openDevTools()
+    mainWindow.webContents.openDevTools();
     mainWindow.loadFile(resolve(__dirname, "../render/index.html"));
   }
-}
 
-const openUrlByDefaultBrowser = (e:IpcMainEvent, args: any) => {
-  shell.openExternal(args)
-}
+  workWindow = new BrowserWindow({
+    show: false,
+    webPreferences: {
+      nodeIntegration: true,
+      preload: join(__dirname, "../work/index.cjs"),
+    },
+  });
+
+  workWindow.hide();
+
+  if (import.meta.env.MODE === "dev") {
+    workWindow.webContents.openDevTools();
+  }
+
+  workWindow.loadFile(resolve(__dirname, "../work/index.html"));
+
+  const { port1, port2 } = new MessageChannelMain();
+  mainWindow.once("ready-to-show", () => {
+    mainWindow.webContents.postMessage("port", null, [port1]);
+  });
+
+  workWindow.once("ready-to-show", () => {
+    workWindow.webContents.postMessage("port", null, [port2]);
+  });
+};
+
+const creatMenu = () => {
+  const menu = Menu.buildFromTemplate([
+    {
+      label: app.name,
+      submenu: [
+        {
+          click: () => {
+            mainWindow.webContents.send("update-counter", 1);
+          },
+          label: "IncrementNumber",
+        },
+      ],
+    },
+  ]);
+  Menu.setApplicationMenu(menu);
+};
 
 app.whenReady().then(() => {
-  createWindow()
-  ipcMain.on('openUrlByDefaultBrowser', openUrlByDefaultBrowser)
-  app.on('activate', () => {
-    if (BrowserWindow.getAllWindows().length === 0) createWindow()
-  })
-})
+  createWindow();
+  creatMenu();
+  initIpc(mainWindow, workWindow);
+  app.on("activate", () => {
+    if (BrowserWindow.getAllWindows().length === 0) createWindow();
+  });
+});
 
-app.on('window-all-closed', () => {
-  if (process.platform !== 'darwin') app.quit()
-})
+app.on("window-all-closed", () => {
+  if (process.platform !== "darwin") app.quit();
+});

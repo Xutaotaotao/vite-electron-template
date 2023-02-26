@@ -8,6 +8,7 @@ const __dirname = fileURLToPath(new URL('.', import.meta.url))
 
 const config = {
   root: process.cwd(),
+  base: './',
   resolve: {
     alias: {
       "@": path.resolve(__dirname, "../../src"),
