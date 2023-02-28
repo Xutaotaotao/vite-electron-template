@@ -9,6 +9,7 @@ import {
 } from "electron";
 import { join, resolve } from "path";
 import { initIpc } from "./ipc";
+import { callNativeSum,rsNativeSum,rsNativeSubtraction } from './native'
 
 let workWindow: any = null;
 let mainWindow: any = null;
@@ -84,6 +85,13 @@ app.whenReady().then(() => {
   app.on("activate", () => {
     if (BrowserWindow.getAllWindows().length === 0) createWindow();
   });
+  const nativeSumResult = callNativeSum(1,2)
+  const rsNativeSumResult = rsNativeSum(3,2)
+  const rsNativeSubtractionResult = rsNativeSubtraction(10,2)
+
+  console.log(nativeSumResult)
+  console.log(rsNativeSumResult)
+  console.log(rsNativeSubtractionResult)
 });
 
 app.on("window-all-closed", () => {

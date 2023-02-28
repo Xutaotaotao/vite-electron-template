@@ -1,11 +1,13 @@
 lockfileVersion: 5.3
 
 specifiers:
+  '@types/ffi-napi': ^4.0.7
   '@types/node': ^18.13.0
   '@types/react': ^18.0.27
   '@types/react-dom': ^18.0.10
   '@vitejs/plugin-react-swc': ^3.0.0
   electron: ^23.0.0
+  ffi-napi: ^4.0.3
   fs-extra: ^11.1.0
   react: ^18.2.0
   react-dom: ^18.2.0
@@ -13,6 +15,8 @@ specifiers:
   vite: ^4.1.0
 
 dependencies:
+  '@types/ffi-napi': registry.npmmirror.com/@types/ffi-napi/4.0.7
+  ffi-napi: registry.npmmirror.com/ffi-napi/4.0.3
   fs-extra: registry.npmmirror.com/fs-extra/11.1.0
   react: registry.npmmirror.com/react/18.2.0
   react-dom: registry.npmmirror.com/react-dom/18.2.0_react@18.2.0
@@ -445,6 +449,16 @@ packages:
       '@types/responselike': registry.npmmirror.com/@types/responselike/1.0.0
     dev: true
 
+  registry.npmmirror.com/@types/ffi-napi/4.0.7:
+    resolution: {integrity: sha512-2CvLfgxCUUSj7qVab6/uFLyVpgVd2gEV4H/TQEHHn6kZTV8iTesz9uo0bckhwzsh71atutOv8P3JmvRX2ZvpZg==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/@types/ffi-napi/-/ffi-napi-4.0.7.tgz}
+    name: '@types/ffi-napi'
+    version: 4.0.7
+    dependencies:
+      '@types/node': registry.npmmirror.com/@types/node/18.13.0
+      '@types/ref-napi': registry.npmmirror.com/@types/ref-napi/3.0.7
+      '@types/ref-struct-di': registry.npmmirror.com/@types/ref-struct-di/1.1.8
+    dev: false
+
   registry.npmmirror.com/@types/http-cache-semantics/4.0.1:
     resolution: {integrity: sha512-SZs7ekbP8CN0txVG2xVRH6EgKmEm31BOxA07vkFaETzZz1xh+cbt8BcI0slpymvwhx5dlFnQG2rTlPVQn+iRPQ==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/@types/http-cache-semantics/-/http-cache-semantics-4.0.1.tgz}
     name: '@types/http-cache-semantics'
@@ -469,7 +483,6 @@ packages:
     resolution: {integrity: sha512-gC3TazRzGoOnoKAhUx+Q0t8S9Tzs74z7m0ipwGpSqQrleP14hKxP4/JUeEQcD3W1/aIpnWl8pHowI7WokuZpXg==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/@types/node/-/node-18.13.0.tgz}
     name: '@types/node'
     version: 18.13.0
-    dev: true
 
   registry.npmmirror.com/@types/prop-types/15.7.5:
     resolution: {integrity: sha512-JCB8C6SnDoQf0cNycqd/35A7MjcnK+ZTqE7judS6o7utxUCg6imJg3QK2qzHKszlTjcj2cn+NwMB2i96ubpj7w==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/@types/prop-types/-/prop-types-15.7.5.tgz}
@@ -494,6 +507,22 @@ packages:
       '@types/scheduler': registry.npmmirror.com/@types/scheduler/0.16.2
       csstype: registry.npmmirror.com/csstype/3.1.1
     dev: true
+
+  registry.npmmirror.com/@types/ref-napi/3.0.7:
+    resolution: {integrity: sha512-CzPwr36VkezSpaJGdQX/UrczMSDsDgsWQQFEfQkS799Ft7n/s183a53lsql7RwVq+Ik4yLEgI84pRnLC0XXRlA==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/@types/ref-napi/-/ref-napi-3.0.7.tgz}
+    name: '@types/ref-napi'
+    version: 3.0.7
+    dependencies:
+      '@types/node': registry.npmmirror.com/@types/node/18.13.0
+    dev: false
+
+  registry.npmmirror.com/@types/ref-struct-di/1.1.8:
+    resolution: {integrity: sha512-t5jwtHlEH6c3rgBRtMQTAtysROr1gWt/ZfcytolK+45dag747fUdgmZy/iQs5q41jinMnr62nxwI0Q8GkdK9TA==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/@types/ref-struct-di/-/ref-struct-di-1.1.8.tgz}
+    name: '@types/ref-struct-di'
+    version: 1.1.8
+    dependencies:
+      '@types/ref-napi': registry.npmmirror.com/@types/ref-napi/3.0.7
+    dev: false
 
   registry.npmmirror.com/@types/responselike/1.0.0:
     resolution: {integrity: sha512-85Y2BjiufFzaMIlvJDvTTB8Fxl2xfLo4HgmHzVBz08w4wDePCTjYw66PdrolO0kzli3yam/YCgRufyo1DdQVTA==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/@types/responselike/-/responselike-1.0.0.tgz}
@@ -580,6 +609,14 @@ packages:
     version: 3.1.1
     dev: true
 
+  registry.npmmirror.com/debug/3.2.7:
+    resolution: {integrity: sha512-CFjzYYAi4ThfiQvizrFQevTTXHtnCqWfe7x1AhgEscTz6ZbLbfoLRLPugTQyBth6f8ZERVUSyWHFD/7Wu4t1XQ==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/debug/-/debug-3.2.7.tgz}
+    name: debug
+    version: 3.2.7
+    dependencies:
+      ms: registry.npmmirror.com/ms/2.1.2
+    dev: false
+
   registry.npmmirror.com/debug/4.3.4:
     resolution: {integrity: sha512-PRWFHuSU3eDtQJPvnNY7Jcket1j0t5OuOsFzPPzsekD52Zl8qUfFIPEiswXqIvHWGVHOgX+7G/vCNNhehwxfkQ==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/debug/-/debug-4.3.4.tgz}
     name: debug
@@ -592,7 +629,6 @@ packages:
         optional: true
     dependencies:
       ms: registry.npmmirror.com/ms/2.1.2
-    dev: true
 
   registry.npmmirror.com/decompress-response/6.0.0:
     resolution: {integrity: sha512-aW35yZM6Bb/4oJlZncMH2LCoZtJXTRxES17vE3hoRiowU2kWHaJKFkSBDnDR+cm9J+9QhXmREyIfv0pji9ejCQ==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/decompress-response/-/decompress-response-6.0.0.tgz}
@@ -729,6 +765,23 @@ packages:
       pend: registry.npmmirror.com/pend/1.2.0
     dev: true
 
+  registry.npmmirror.com/ffi-napi/4.0.3:
+    resolution: {integrity: sha512-PMdLCIvDY9mS32RxZ0XGb95sonPRal8aqRhLbeEtWKZTe2A87qRFG9HjOhvG8EX2UmQw5XNRMIOT+1MYlWmdeg==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/ffi-napi/-/ffi-napi-4.0.3.tgz}
+    name: ffi-napi
+    version: 4.0.3
+    engines: {node: '>=10'}
+    requiresBuild: true
+    dependencies:
+      debug: registry.npmmirror.com/debug/4.3.4
+      get-uv-event-loop-napi-h: registry.npmmirror.com/get-uv-event-loop-napi-h/1.0.6
+      node-addon-api: registry.npmmirror.com/node-addon-api/3.2.1
+      node-gyp-build: registry.npmmirror.com/node-gyp-build/4.6.0
+      ref-napi: registry.npmmirror.com/ref-napi/3.0.3
+      ref-struct-di: registry.npmmirror.com/ref-struct-di/1.1.1
+    transitivePeerDependencies:
+      - supports-color
+    dev: false
+
   registry.npmmirror.com/fs-extra/11.1.0:
     resolution: {integrity: sha512-0rcTq621PD5jM/e0a3EJoGC/1TC5ZBCERW82LQuwfGnCa1V8w7dpYH1yNu+SLb6E5dkeCBzKEyLGlFrnr+dUyw==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/fs-extra/-/fs-extra-11.1.0.tgz}
     name: fs-extra
@@ -786,6 +839,20 @@ packages:
     dependencies:
       pump: registry.npmmirror.com/pump/3.0.0
     dev: true
+
+  registry.npmmirror.com/get-symbol-from-current-process-h/1.0.2:
+    resolution: {integrity: sha512-syloC6fsCt62ELLrr1VKBM1ggOpMdetX9hTrdW77UQdcApPHLmf7CI7OKcN1c9kYuNxKcDe4iJ4FY9sX3aw2xw==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/get-symbol-from-current-process-h/-/get-symbol-from-current-process-h-1.0.2.tgz}
+    name: get-symbol-from-current-process-h
+    version: 1.0.2
+    dev: false
+
+  registry.npmmirror.com/get-uv-event-loop-napi-h/1.0.6:
+    resolution: {integrity: sha512-t5c9VNR84nRoF+eLiz6wFrEp1SE2Acg0wS+Ysa2zF0eROes+LzOfuTaVHxGy8AbS8rq7FHEJzjnCZo1BupwdJg==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/get-uv-event-loop-napi-h/-/get-uv-event-loop-napi-h-1.0.6.tgz}
+    name: get-uv-event-loop-napi-h
+    version: 1.0.6
+    dependencies:
+      get-symbol-from-current-process-h: registry.npmmirror.com/get-symbol-from-current-process-h/1.0.2
+    dev: false
 
   registry.npmmirror.com/global-agent/3.0.0:
     resolution: {integrity: sha512-PT6XReJ+D07JvGoxQMkT6qji/jVNfX/h364XHZOWeRzy64sSFr+xJ5OX7LI3b4MPQzdL4H8Y8M0xzPpsVMwA8Q==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/global-agent/-/global-agent-3.0.0.tgz}
@@ -986,7 +1053,6 @@ packages:
     resolution: {integrity: sha512-sGkPx+VjMtmA6MX27oA4FBFELFCZZ4S4XqeGOXCv68tT+jb3vk/RyaKWP0PTKyWtmLSM0b+adUTEvbs1PEaH2w==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/ms/-/ms-2.1.2.tgz}
     name: ms
     version: 2.1.2
-    dev: true
 
   registry.npmmirror.com/nanoid/3.3.4:
     resolution: {integrity: sha512-MqBkQh/OHTS2egovRtLk45wEyNXwF+cokD+1YPf9u5VfJiRdAiRwB2froX5Co9Rh20xs4siNPm8naNotSD6RBw==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/nanoid/-/nanoid-3.3.4.tgz}
@@ -995,6 +1061,19 @@ packages:
     engines: {node: ^10 || ^12 || ^13.7 || ^14 || >=15.0.1}
     hasBin: true
     dev: true
+
+  registry.npmmirror.com/node-addon-api/3.2.1:
+    resolution: {integrity: sha512-mmcei9JghVNDYydghQmeDX8KoAm0FAiYyIcUt/N4nhyAipB17pllZQDOJD2fotxABnt4Mdz+dKTO7eftLg4d0A==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/node-addon-api/-/node-addon-api-3.2.1.tgz}
+    name: node-addon-api
+    version: 3.2.1
+    dev: false
+
+  registry.npmmirror.com/node-gyp-build/4.6.0:
+    resolution: {integrity: sha512-NTZVKn9IylLwUzaKjkas1e4u2DLNcV4rdYagA4PWdPwW87Bi7z+BznyKSRwS/761tV/lzCGXplWsiaMjLqP2zQ==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/node-gyp-build/-/node-gyp-build-4.6.0.tgz}
+    name: node-gyp-build
+    version: 4.6.0
+    hasBin: true
+    dev: false
 
   registry.npmmirror.com/normalize-url/6.1.0:
     resolution: {integrity: sha512-DlL+XwOy3NxAQ8xuC0okPgK46iuVNAK01YN7RueYBqqFeGsBjV9XmCAzAdgt+667bCl5kPh9EqKKDwnaPG1I7A==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/normalize-url/-/normalize-url-6.1.0.tgz}
@@ -1098,6 +1177,29 @@ packages:
     engines: {node: '>=0.10.0'}
     dependencies:
       loose-envify: registry.npmmirror.com/loose-envify/1.4.0
+    dev: false
+
+  registry.npmmirror.com/ref-napi/3.0.3:
+    resolution: {integrity: sha512-LiMq/XDGcgodTYOMppikEtJelWsKQERbLQsYm0IOOnzhwE9xYZC7x8txNnFC9wJNOkPferQI4vD4ZkC0mDyrOA==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/ref-napi/-/ref-napi-3.0.3.tgz}
+    name: ref-napi
+    version: 3.0.3
+    engines: {node: '>= 10.0'}
+    requiresBuild: true
+    dependencies:
+      debug: registry.npmmirror.com/debug/4.3.4
+      get-symbol-from-current-process-h: registry.npmmirror.com/get-symbol-from-current-process-h/1.0.2
+      node-addon-api: registry.npmmirror.com/node-addon-api/3.2.1
+      node-gyp-build: registry.npmmirror.com/node-gyp-build/4.6.0
+    transitivePeerDependencies:
+      - supports-color
+    dev: false
+
+  registry.npmmirror.com/ref-struct-di/1.1.1:
+    resolution: {integrity: sha512-2Xyn/0Qgz89VT+++WP0sTosdm9oeowLP23wRJYhG4BFdMUrLj3jhwHZNEytYNYgtPKLNTP3KJX4HEgBvM1/Y2g==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/ref-struct-di/-/ref-struct-di-1.1.1.tgz}
+    name: ref-struct-di
+    version: 1.1.1
+    dependencies:
+      debug: registry.npmmirror.com/debug/3.2.7
     dev: false
 
   registry.npmmirror.com/resolve-alpn/1.2.1:
